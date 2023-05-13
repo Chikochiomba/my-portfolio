@@ -2,50 +2,175 @@
 <html>
     <head>
         <title>Contacts</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet/style.css"/>
+        <style type="text/css">
+            .contact-section{
+                width: 100%;
+                height: 350px;
+                margin-bottom: 25px;
+                padding-top: 30px;
+                display: inline-block;
+            }
+            #Address{
+                padding-top: 80px;
+                text-align: center;
+                float:left;
+                width: 50%;
+               min-height: 250px;
+                background-color: transparent;
 
+            }
+
+            #social-about{
+                padding-top: 80px;
+                text-align: center;
+                float: left;
+                width: 45%;
+                min-height: 250px;
+                background-color: transparent;
+
+            }
+
+
+            .header{
+                background-color: #191970;
+                min-height: 60px;
+                width: 100%;
+                position: fixed;
+                z-index: 1;
+                margin-bottom: 10px;
+            }
+            #form-container{
+                width: 100%;
+                min-height: 300px;
+                background-color: transparent;
+                padding-left: 10px;
+            }
+            .text {
+                width: 80%;
+                height: 32px;
+                background-color: white;
+                border: 2px solid #191970;
+                border-radius: 5px;
+            }
+            .textarea{
+                width: 80%;
+                border: 2px solid #191970;
+                border-radius: 5px;
+            }
+            .button{
+                padding-left: 15px;
+                padding-right: 15px;
+                width: 100px;
+                background-color: #191970;
+                border-radius: 5px;
+                color: whitesmoke;
+                text-align: center;
+                line-height: 50px
+
+            }
+            label{
+                color: #191970;
+                margin: 5px;
+            
+            }
+            h3{
+                color: #191970;
+                text-align: center;
+            }
+        
+
+        </style>
     </head>
     <body>
-        <h1><b>ChikondiChiomba.com</b></h1>
+       <header class="header">
+        <h1>chikondi chiomba</h1>
         <nav>
-        <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="portfolio.html">portfolio</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contacts</a></li>
-        </ul>
-        <nav>
-        </header>
-        <section>
-            <h2 align="center"><u>Get In Touch</u></h2>
-            <ul>
-                <li>Address: opposite mzuzu shoping mail</li>
+            <a href="index.html">Home</a>
+            <a href="services.html">services</a>
+            <a href="about.html">about</a>
+            <a href="contact.html">Contacts</a>
+        </nav>
+    </header>
+        <div class="contact-section">
+            <div id="Address">
+            <h2 align="center">Find us at</h2>
+            <ul > 
+                <li>Address: mzuzu university , in Luwinga</li>
                 <li>Phone: +265882665723</li>
                 <li>Email: chikochiomba@gmail.com</li>
                 <li>Telegram: +265882665723</li>
-                <li>
-                    social links:
+                </div>
+                <div id="social-about">
+                
+                <h2>you can contact us on</h2>
                     <ul>
+                    <li>+265882665723</li>
                     <li><a href="https://www.facebook.com/chikondichiomba">facebook</a></li>
                     <li><a href="https://www.Instagram.com/chikoc">Instagram</a></li>
                     <li><a href="https://www.twitter.com"/chikochiomba>twitter</a></li>
                 </ul>
 
-                </li>
-
             </ul>
+        </div>
+        </div>
+        <div id="form-container">
+            <h3>For feedback</h3>
             <form>
-                <input type="text" name="name" placeholder="your name"><br><br>
-                <input type="text" name="phone" placeholder="your phone number"><br><br>
-                <input type="text" name="email" placeholder="your email ld"><br><br>
-                <textarea name="message" rows="10" cols="30">
-                enter your message
+                <label>Name</label><br>
+                <input type="text" class="text"name="name" placeholder="your name"><br><br>
+                <label>phone</label><br>
+                <input type="text"class="text" name="phone" placeholder="your phone number"><br><br>
+                <label>Email</label><br>
+                <input type="text" class="text" name="email" placeholder="your email ld"><br><br>
+                <label>Feedback</label><br>
+                <textarea name="message" class="textarea" cols="30" rows="10" placeholder="enter your message ...">
                 </textarea><br>
-                <input type="button" name="submit" value="send message"/>
+                <input type="submit" class="button"name="submit" value="send message"/><br>
             </form>
-        </section>
+        </div>
         <footer>
-            <p align="center">chikondichiomba@2023</p>
-        </footer>
+        <div class="socialMedia-icons">
+            <div class="Social-icons    float: left;">   
+                <a href="www.facebook.com/chikondichiomba">           
+                <div class="icon-img" title="Facebook">
+                    <img src="images/fb4.png">
+                </div>
+                </a>
+
+                <a href="www.twitter.com/chikondichiomba">    
+                <div class="icon-img" title="Twitter">
+                    <img src="images/twitter1.png">
+                </div>
+                </a>
+
+                <a href="www.Instagram.com/chikondichiomba">    
+                <div class="icon-img" title="Instagram">
+                    <img src="images/insta.png">
+                </div>
+                </a>
+
+                <a href="www.chikondichiomba@gmail.com">    
+                <div class="icon-img" title="Email">
+                    <img src="images/mail2.png">
+                </div>
+                </a>
+
+                <a href="www.facebook.com/chikondichiomba">    
+                <div class="icon-img" title="Call">
+                    <img src="images/call.png">
+                </div>
+                </a>
+
+                <a href="www.LinkedIn.com/chikondichiomba">    
+                <div class="icon-img" title="LinkedIn">
+                    <img src="images/linkedin2.png">
+                </div>
+                </a>
+            </div>
+        </div>
+
+        <p>chikondichiomba@2023</p>
+    </footer>
     </body>
 </html>
