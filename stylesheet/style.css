@@ -219,11 +219,38 @@ footer p {
 h2 ,h3{
 	color: #191970;
 }
-/*a:hover{
-	background-color:gray;
-	color: white;
-}*/
-a.active{
-	background-color: dimgray;
+a:hover{
+	background-color:darkblue;
 	color: white;
 }
+a.active{
+	background-color: darkblue;
+	color: white;
+}
+
+/*contact stylesheet*/
+
+.c-icons {
+	height: 40px;
+	width: 40px;
+	align-items: center;
+	margin: 5px 0 0 230px;
+	background-color: transparent;
+}
+/*#pro{
+	margin-top: 20px;
+	color: white;
+	text-decoration: none;
+	background-color: #191970;
+}
+*/
+
+
+
+
+
+
+
+
+
+
