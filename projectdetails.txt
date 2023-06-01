@@ -1,2 +1,2 @@
-AuthorName: CHIKONDI CHIOMBA
-REG NUMBER: BICTU0622
+﻿AuthorName: Chikondi Chiomba
+AuthorName: BICTU0622

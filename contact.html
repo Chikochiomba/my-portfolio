@@ -50,8 +50,11 @@
                 width: 80%;
                 height: 32px;
                 background-color: white;
-                border: 2px solid #191970;
+                border: 2px solid #191970;                
                 border-radius: 5px;
+            }
+            input{
+                padding-left: 20px;
             }
             .textarea{
                 width: 80%;
@@ -83,13 +86,16 @@
         </style>
     </head>
     <body>
-       <header class="header">
+       <header>
         <h1>chikondi chiomba</h1>
         <nav>
             <a href="index.html">Home</a>
+            <a href="project.html">Project</a>
             <a href="services.html">services</a>
+            <a href="skills.html">Skills</a>
             <a href="about.html">about</a>
             <a href="contact.html">Contacts</a>
+
         </nav>
     </header>
         <div class="contact-section">
@@ -107,7 +113,7 @@
                 <h2>you can contact us on</h2>
                     <ul>
                         <div class="c-icons">
-                            <a href="https://www.gmail.com/chikondichiomba"><img src="icons/gmail.png"></a>
+                            <a href="mailto:chikondichiomba@gmail.com"><img src="icons/gmail.png"></a>
                         </div>
                         <div class="c-icons">
                             <a href="https://www.Instagram.com/chikondichiomba"><img src="icons/instagram.png"></a>
@@ -127,17 +133,20 @@
         </div>
         <div id="form-container">
             <h3>For feedback</h3>
-            <form>
+             <form name="myform" method="post" action="#" onsubmit="return validateform()" >  
+               
+
                 <label>Name</label><br>
                 <input type="text" class="text"name="name" placeholder="your name"><br><br>
                 <label>phone</label><br>
-                <input type="text"class="text" name="phone" placeholder="your phone number"><br><br>
+                <input type="text"class="text" name="phone" id="phone"
+                placeholder="your phone number"><br><br>
                 <label>Email</label><br>
-                <input type="text" class="text" name="email" placeholder="your email ld"><br><br>
+                <input type="text" class="text"  name="email" placeholder="your email ld"><br><br>
                 <label>Feedback</label><br>
                 <textarea name="message" class="textarea" cols="30" rows="10" placeholder="enter your message ...">
                 </textarea><br>
-                <input type="submit" class="button"name="submit" value="send message"/><br>
+                <input type="submit" class="button" value="Send"/><br>
             </form>
         </div>
         <footer>
@@ -180,8 +189,43 @@
                 </a>
             </div>
         </div>
+       
 
         <p>chikondichiomba@2023</p>
     </footer>
+    <script>
+        function validateform(){  
+            var name=document.myform.name.value;  
+            var email=document.myform.email.value;  
+            var phone=document.myform.phone.value;  
+            var message=document.myform.message.value;  
+
+            var email=document.myform.email.value;  
+            var atposition=email.indexOf("@");  
+            var dotposition=email.lastIndexOf(".");  
+            
+
+            if (name==null || name==""){  
+              alert("Name can't be blank");  
+              return false;  
+            }else if(phone==null || phone==""){  
+              alert("Phone cant be blank");  
+              return false;  
+            }else if(email==null || email==""){  
+                alert("Email cant be blank");  
+               
+                return false;  
+            }else if(message==null || message==""){  
+              alert("Message cant be blank");  
+              return false;  
+            } 
+
+            if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){  
+                alert("Please enter a valid e-mail address");  
+                return false;  
+            } 
+        }  
+    </script>
+    <script type="text/javascript" src="script.js"></script>
     </body>
 </html>
