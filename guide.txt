@@ -1,0 +1,5 @@
+This myportfolio website project is dynamically storing its contents from portfolio database and i have attached it together with this project in the database folder there is a file called portfolio.sql 
+all is needed is to create database name it portfolio on xampp or any DBMS and import the database file portfolio.sql into that database you have created 
+add the website and its files into xampp htdocs folder   
+open browser and type the website url
+in mycase "localhost/my-portfolio" and the website will load with all its contents.

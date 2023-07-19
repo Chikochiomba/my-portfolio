@@ -18,6 +18,7 @@ header{
 	width: 100%;
 	position: fixed;
 	z-index: 1;
+	margin-top: -10px;
 	margin-bottom: 5px;
 }
 
@@ -121,10 +122,10 @@ img{
 
 .description {
 	height: auto;
-	width: 40%;
+	width: 30%;
 	margin: 80px 20px 0 0;
 	min-height: 200px;
-	background-color: transparent;
+	background-color:transparent;
 
 	float: left;
 }
@@ -343,6 +344,52 @@ a.active{
   from {opacity: .4}
   to {opacity: 1}
 }
+#form-container10{
+	float: right;
+    width: 50%;
+    min-height: 300px;
+    background-color:transparent;
+    padding-left: 10px;
+    margin-top: 35px;
+}
+.text {
+    width: 100%;
+    height: 32px;
+    background-color: white;
+    border: 2px solid #191970;                
+    border-radius: 5px;
+}
+input{
+    padding-left: 20px;
+}
+.textarea{
+    width: 100%;
+    border: 2px solid #191970;
+    border-radius: 5px;
+}
+.button{
+	float: right;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100px;
+    background-color: #191970;
+    border-radius: 5px;
+    color: whitesmoke;
+    text-align: center;
+    line-height: 50px
+
+}
+label{
+	float: right;
+    color: #191970;
+    margin: 2px;
+
+}
+h3{
+    color: #191970;
+    text-align: center;
+}
+
 
 
 

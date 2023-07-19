@@ -24,3 +24,34 @@ function showSlides() {
   slides[slideIndex-1].style.display = "block";
   setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
+ function validateform(){  
+            var name=document.myform.name.value;  
+            var email=document.myform.email.value;  
+            var phone=document.myform.phone.value;  
+            var message=document.myform.message.value;  
+
+            var email=document.myform.email.value;  
+            var atposition=email.indexOf("@");  
+            var dotposition=email.lastIndexOf(".");  
+            
+
+            if (name==null || name==""){  
+              alert("Name can't be blank");  
+              return false;  
+            }else if(phone==null || phone==""){  
+              alert("Phone cant be blank");  
+              return false;  
+            }else if(email==null || email==""){  
+                alert("Email cant be blank");  
+               
+                return false;  
+            }else if(message==null || message==""){  
+              alert("Message cant be blank");  
+              return false;  
+            } 
+
+            if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){  
+                alert("Please enter a valid e-mail address");  
+                return false;  
+            } 
+        } 

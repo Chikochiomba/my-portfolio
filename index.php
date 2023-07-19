@@ -1,3 +1,9 @@
+<?php
+require_once 'connection.php';
+$query = "select*from homepage";
+$result = mysqli_query($con,$query);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,12 +18,12 @@
 	<header>
 		<h1>chikondi chiomba</h1>
 		<nav>
-			<a href="index.html">Home</a>
-			<a href="project.html">Project</a>
-			<a href="services.html">services</a>
-			<a href="skills.html">Skills</a>
-			<a href="about.html">about</a>
-			<a href="contact.html">Contacts</a>
+			<a href="index.php">Home</a>
+			<a href="project.php">Project</a>
+			<a href="services.php">services</a>
+			<a href="skills.php">Skills</a>
+			<a href="about.php">about</a>
+			<a href="contact.php">Contacts</a>
 
 		</nav>
 	</header>
@@ -26,17 +32,24 @@
 	
 		<!--the section of the page-->
 	<section class="middle-section">
+		<?php
+			
+			while($row=mysqli_fetch_array($result)){
+
+			
+		?>
 		<div class="intro">
-			<img src="images/chikohome.jpg" alt="picture of my self"/>
+		<?php echo "<img src='uploads/".$row['images']."' >";?>
 		</div>
 		<div class="bio">
-			<p><strong>Hi! I am chikondi chiomba!</strong> <br>
-			I'm a Software and web developer with in-depth experience in both web and software UI/UX design and development.
-			I create websites and softwares that help both individual and organizations  address business challenges and meet thier needs.
-			ON part of web I manage everything from website navigation and layout to web hosting
-			ON on the part of softwaredevelopment i also handle the entire software development cycle from requirement gathering to  deployment stage of the software.
-			I have experience in both desktop and mobile application development using Java,kotlin and C++ programming language, also I am an expert in web desin using HTML,CSS and Javascript, development using PHP and mysql database.</p>
+			<p>
+		<?php echo  $row['biography'];  ?>
+			</p>
 		</div>
+		<?php
+			}
+		?>
+		
 	</section>
 	<div class="greeting-container">
 		<h4></h4>
@@ -47,81 +60,137 @@
 		<div class="featured">
 		<div class="slideshow-container">
 
-  <!-- Full-width images with number and caption text -->
   <div class="mySlides fade">
-    <div class="numbertext">1 / 3</div>
     <img src="images/slider1.png" alt="myphoto" style="width:100%">
     <div class="text">project</div>
   </div>
 
   <div class="mySlides fade">
-    <div class="numbertext">2 / 3</div>
     <img src="images/slider2.png" alt="myphoto" style="width:100%">
     <div class="text">project</div>
   </div>
 
   <div class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
     <img src="images/slide3.png" alt="myphoto" style="width:100%">
     <div class="text">project</div>
   </div>
 
-  <!-- Next and previous buttons -->
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
 <br>
 
-<!-- The dots/circles -->
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span>
-  <span class="dot" onclick="currentSlide(2)"></span>
-  <span class="dot" onclick="currentSlide(3)"></span>
-</div>
 <script type="text/javascript" src="file.js"></script>
 		</div>
-		<div class="description">
+
+	</section>
+			<div class="description">
 			<p>My Portfolio website project using HTML, CSS, JavaScript, PHP and MYSQL.</p>
 			<a id="pro" href="index.html">My Portfolio project</a>
 		</div>
-	</section>
-<!--
-			<div class="project">
-				
-			</div>
--->
+		        <div id="form-container10">
+            <h3>Contact</h3>
+             <form name="myform" method="post" action="" onsubmit="return validateform()" >  
+               
+
+                <label>Name</label><br>
+                <input type="text" class="text"name="name" placeholder="your name"><br><br>
+                <label>phone</label><br>
+                <input type="text"class="text" name="phone" id="phone"
+                placeholder="your phone number"><br><br>
+                <label>Email</label><br>
+                <input type="text" class="text"  name="email" placeholder="your email ld"><br><br>
+                <label>Feedback</label><br>
+                <textarea name="message" class="textarea" cols="30" rows="10" placeholder="enter your message ...">
+                </textarea><br>
+                <input type="submit" name="submit" class="button" value="Send"/><br>
+            </form>
+			<?php
+//we are adding the connection to the database for query executions;
+ require 'connection.php';
+ //if a user clicks the 
+ if(isset($_POST['submit'])){
+    $fullname = $_POST['name'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    //we create a sql query to insert data into the database;
+    $query ="insert into contact(name,phone,email,feedback) values('$fullname','$phone','$email','$message')";
+    $dbselect=mysqli_select_db($con, "portfolio");
+	$result = mysqli_query($con,$query);
+	//checking if the query was successful or not
+		if($result){
+        echo "feedback was sent successfully";
+		}else{
+			echo "feedback was not sent successfully".mysqli_error($con);
+		
+		}
+//closing the connection
+mysqli_close($con);
+ } 
+
+?>
+        </div>
+		
+
 	<section class="bottom-section">
 		<div class="skills">
 			<h2>Skills</h2>
-			<ul>
-				<li>Web UI design</li>
-				<li>web development</li>
-				<li>Programming</li>
-				<li>database design and development</li>
-			</ul>
+			<?php
+			require_once 'connection.php';
+			$query="select*from skills";
+			$result = mysqli_query($con,$query);
+			while($row=mysqli_fetch_array($result)){
+				
+				?>
+			
+					<ul>
+						<li>
+						<?php echo  $row['skillname'];  ?>
+						</li>
+
+					</ul>
+				<?php
+			}
+			?>
 		</div>
 		<div class="skills">
+		
 			<h2>Tools</h2>
+			<?php
+			require_once 'connection.php';
+			$query="select*from tools";
+			$result = mysqli_query($con,$query);
+			while($row=mysqli_fetch_array($result)){
+				
+				?>
 			<ul>
-				<li>Github</li>
-				<li>chrome Development tools</li>
-				<li>visual studio code</li>
-				<li>GUI designer</li>
-				<li>IDE'S</li>
-				<li>Linkers</li>
+				<li>
+				<?php echo  $row['toolist'];  ?>
+				</li>
+				
 			</ul>
+			<?php
+			}
+			?>
 		</div>
 		<div class="skills">
 			<h2>Technologies</h2>
+			<?php
+			require_once 'connection.php';
+			$query="select*from technology";
+			$result = mysqli_query($con,$query);
+			while($row=mysqli_fetch_array($result)){
+				
+				?>
+			
 			<ul>
-				<li>HTML</li>
-				<li>CSS</li>
-				<li>Javascript</li>
-				<li>Java</li>
-				<li>C++</li>
-				<li>Browser</li>
-				<li>php</li>
+				<li>
+					<?php echo $row['techlist']; ?>
+				</li>
+
 			</ul>
+			<?php
+			}
+			?>
 		</div>
 	</section>
 

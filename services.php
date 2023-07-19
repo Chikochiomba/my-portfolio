@@ -76,18 +76,18 @@
         </style>
     </head>
     <body>
-        <header>
-        <h1>chikondi chiomba</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="project.html">Project</a>
-            <a href="services.html">services</a>
-            <a href="skills.html">Skills</a>
-            <a href="about.html">about</a>
-            <a href="contact.html">Contacts</a>
+      <header>
+    <h1>chikondi chiomba</h1>
+    <nav>
+      <a href="index.php">Home</a>
+      <a href="project.php">Project</a>
+      <a href="services.php">services</a>
+      <a href="skills.php">Skills</a>
+      <a href="about.php">about</a>
+      <a href="contact.php">Contacts</a>
 
-        </nav>
-    </header>
+    </nav>
+  </header>
         <div id="service-div">
             <div class="image-container">
            <div class="desc" >

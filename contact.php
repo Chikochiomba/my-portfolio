@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,61 +41,61 @@
                 z-index: 1;
                 margin-bottom: 10px;
             }
-            #form-container{
-                width: 100%;
-                min-height: 300px;
-                background-color: transparent;
-                padding-left: 10px;
-            }
-            .text {
-                width: 80%;
-                height: 32px;
-                background-color: white;
-                border: 2px solid #191970;                
-                border-radius: 5px;
-            }
-            input{
-                padding-left: 20px;
-            }
-            .textarea{
-                width: 80%;
-                border: 2px solid #191970;
-                border-radius: 5px;
-            }
-            .button{
-                padding-left: 15px;
-                padding-right: 15px;
-                width: 100px;
-                background-color: #191970;
-                border-radius: 5px;
-                color: whitesmoke;
-                text-align: center;
-                line-height: 50px
+        #form-container{
+            width: 100%;
+            min-height: 300px;
+            background-color: transparent;
+            padding-left: 10px;
+        }
+        .text {
+            width: 100%;
+            height: 32px;
+            background-color: white;
+            border: 2px solid #191970;                
+            border-radius: 5px;
+        }
+        input{
+            padding-left: 20px;
+        }
+        .textarea{
+            width: 100%;
+            border: 2px solid #191970;
+            border-radius: 5px;
+        }
+        .button{
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 100px;
+            background-color: #191970;
+            border-radius: 5px;
+            color: whitesmoke;
+            text-align: center;
+            line-height: 50px
 
-            }
-            label{
-                color: #191970;
-                margin: 5px;
-            
-            }
-            h3{
-                color: #191970;
-                text-align: center;
-            }
+        }
+        .label{
+            color: #191970;
+            margin: 5px;
         
+        }
+        h3{
+            color: #191970;
+            text-align: center;
+        }
+    
 
         </style>
     </head>
     <body>
-       <header>
+      <header>
         <h1>chikondi chiomba</h1>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="project.html">Project</a>
-            <a href="services.html">services</a>
-            <a href="skills.html">Skills</a>
-            <a href="about.html">about</a>
-            <a href="contact.html">Contacts</a>
+            <a href="index.php">Home</a>
+            <a href="project.php">Project</a>
+            <a href="services.php">services</a>
+            <a href="skills.php">Skills</a>
+            <a href="about.php">about</a>
+            <a href="contact.php">Contacts</a>
 
         </nav>
     </header>
@@ -133,22 +134,51 @@
         </div>
         <div id="form-container">
             <h3>For feedback</h3>
-             <form name="myform" method="post" action="#" onsubmit="return validateform()" >  
+             <form name="myform" method="post" action="" onsubmit="return validateform()" >  
                
 
-                <label>Name</label><br>
+                <label class="label">Name</label><br>
                 <input type="text" class="text"name="name" placeholder="your name"><br><br>
-                <label>phone</label><br>
+                <label class="label">phone</label><br>
                 <input type="text"class="text" name="phone" id="phone"
                 placeholder="your phone number"><br><br>
-                <label>Email</label><br>
+                <label class="label">Email</label><br>
                 <input type="text" class="text"  name="email" placeholder="your email ld"><br><br>
-                <label>Feedback</label><br>
+                <label class="label">Feedback</label><br>
                 <textarea name="message" class="textarea" cols="30" rows="10" placeholder="enter your message ...">
                 </textarea><br>
-                <input type="submit" class="button" value="Send"/><br>
+                <input type="submit" class="button" name="send" value="Send"/><br>
             </form>
+
+<?php
+//we are adding the connection to the database for query executions;
+ require 'connection.php';
+ //if a user clicks the 
+ if(isset($_POST['send'])){
+    $fullname = $_POST['name'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    //we create a sql query to insert data into the database;
+    $query ="insert into contact(name,phone,email,feedback) values('$fullname','$phone','$email','$message')";
+    //checking if the query was successful or not
+    if(mysqli_query($con,$query)){
+        echo "feedback was sent successfully";
+    }else{
+        echo "feedback was not sent successfully". $sql . "
+" . mysqli_error($con);
+
+    }
+//closing the connection
+mysqli_close($con);
+ }
+
+
+
+
+?>
         </div>
+
         <footer>
         <div class="socialMedia-icons">
             <div class="Social-icons    float: left;">   
@@ -194,6 +224,7 @@
         <p>chikondichiomba@2023</p>
     </footer>
     <script>
+        //function declaration
         function validateform(){  
             var name=document.myform.name.value;  
             var email=document.myform.email.value;  
